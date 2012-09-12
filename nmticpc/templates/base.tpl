@@ -17,7 +17,7 @@
                 <a href="#">Scoreboard</a> | 
                 <a href="{% url teams.views.homePage %}">Rules/Info</a> |
                 {% if user.is_authenticated %}
-                    <a href="#">Submissions</a> | 
+                    <a href="{% url teams.views.submissions %}">Submissions</a> | 
                     <a href="{% url userena.views.profile_detail user.username %}">Team Profile</a>
                 {% else %}
                     <a href="{% url userena.views.signin %}">Sign In</a> |

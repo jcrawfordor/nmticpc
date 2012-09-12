@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^accounts/', include('userena.urls')),
     (r'^$', 'teams.views.homePage'),
+    (r'^submissions/', 'teams.views.submissions'),
 )

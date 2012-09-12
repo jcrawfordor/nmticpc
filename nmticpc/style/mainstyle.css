@@ -11,7 +11,7 @@ body {
 
 #container {
     width: 600px;
-    margin: 0 auto;
+    margin: 20px auto;
     background-color: #444444;
 }
 
@@ -62,4 +62,28 @@ ul, ol {
     text-align: center;
     background-color: #333333;
     padding: 2px;
+}
+
+#problembar {
+    text-align: center;
+}
+
+.problemmargin {
+    display: inline-block;
+    margin: 5px;
+}
+
+.problemblock {
+    display: table-cell;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    background-color: #cccccc;
+    color: #000000;
+    font-size: 2em;
+    vertical-align: middle;
+}
+
+.problemsolved {
+    background-color: #99ff99;
 }

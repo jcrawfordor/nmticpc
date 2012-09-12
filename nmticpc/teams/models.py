@@ -13,8 +13,8 @@ class Problem(models.Model):
     value  = models.IntegerField()
 
 class Submission(models.Model):
-    team = models.ForeignKey(TeamProfile)
-    author = models.ForeignKey(Problem)
+    author = models.ForeignKey(TeamProfile)
+    problem = models.ForeignKey(Problem)
     reviewed = models.BooleanField()
     valid = models.BooleanField()
     comment = models.TextField()
