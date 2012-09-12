@@ -1,5 +1,8 @@
 # Django settings for nmticpc project.
 
+import os
+import sys
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -59,7 +62,6 @@ SECRET_KEY = '2oqtq=_@xc1+gix@2w+3q%mr^*vd$!)8ormh28x70qujua70)h'
 TEMPLATE_LOADERS = (
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
                 )
 
 AUTHENTICATION_BACKENDS = (
@@ -79,9 +81,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'nmticpc.urls'
 
 TEMPLATE_DIRS = (
-# Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-# Always use forward slashes, even on Windows.
-# Don't forget to use absolute paths, not relative paths.
+                    os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
                 )
 
 INSTALLED_APPS = (
