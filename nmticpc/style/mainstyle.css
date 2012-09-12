@@ -93,6 +93,10 @@ ul, ol {
     text-decoration: none;
 }
 
+.plink:visited {
+    color: #0000ff;
+}
+
 td {
     padding: 0 5px;
 }
@@ -107,4 +111,8 @@ p, h1, h2, h3 {
 
 h1, h2, h3 {
     margin-top: 10px;
+}
+
+input {
+    padding: 3px;
 }

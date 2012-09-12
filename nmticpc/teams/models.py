@@ -17,11 +17,19 @@ class Problem(models.Model):
     def __str__(this):
         return str(this.number)
 
+    def isSolvedBy(this, team):
+        """ Given a TeamProfile object, determines if they have solved this problem or not """
+        validsubmissions = Submission.objects.filter(problem=this,author=team,valid=True)
+        if len(validsubmissions) > 0:
+            return True
+        else:
+            return False
+
 class Submission(models.Model):
-    author = models.ForeignKey(TeamProfile)
+    author = models.ForeignKey(User)
     problem = models.ForeignKey(Problem)
     reviewed = models.BooleanField()
     valid = models.BooleanField()
-    comment = models.TextField()
+    comment = models.TextField(blank=True)
     content = models.FileField(upload_to="submissions/%Y-%m-%d-%H%M%S")
     submitted = models.DateTimeField(auto_now_add = True)
