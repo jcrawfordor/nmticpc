@@ -87,3 +87,24 @@ ul, ol {
 .problemsolved {
     background-color: #99ff99;
 }
+
+.plink {
+    color: #0000ff;
+    text-decoration: none;
+}
+
+td {
+    padding: 0 5px;
+}
+
+table.wide {
+    width: 100%;
+}
+
+p, h1, h2, h3 {
+    margin-bottom: 10px;
+}
+
+h1, h2, h3 {
+    margin-top: 10px;
+}

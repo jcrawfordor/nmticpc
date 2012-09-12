@@ -3,4 +3,5 @@
 *~
 *.swp
 /static
+/media
 /nmticpc/build
