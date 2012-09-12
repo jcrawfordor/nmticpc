@@ -46,3 +46,12 @@ a {
 a:visited {
     color: #aaaaff;
 }
+
+fieldset {
+    padding: 10px;
+}
+
+ul, ol {
+    margin: 1.12em 0;
+    margin-left: 40px;
+}

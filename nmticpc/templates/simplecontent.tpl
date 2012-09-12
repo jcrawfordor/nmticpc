@@ -1,3 +1,3 @@
-{% extends "container.tpl" %}
+{% extends "base.tpl" %}
 
 {% block content %} {{ theContent }} {% endblock %}
