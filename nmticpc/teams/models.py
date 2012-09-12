@@ -7,7 +7,6 @@ from userena.models import UserenaBaseProfile
 
 class TeamProfile(UserenaBaseProfile):
     user = models.OneToOneField(User, unique=True, verbose_name=('user'), related_name='team_profile')
-    displayName = models.CharField(max_length=30)
 
 class Problem(models.Model):
     number = models.IntegerField()
