@@ -100,7 +100,7 @@ INSTALLED_APPS = (
 
 # Userena stuff
 ANONYMOUS_USER_ID = -1
-LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 USERENA_ACTIVATION_REQUIRED = False

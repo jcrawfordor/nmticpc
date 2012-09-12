@@ -5,8 +5,15 @@
     <link rel="stylesheet" type="text/css" href="/static/mainstyle.css">
 </head>
 <body>
-    <span class="mainheader">NMT ICPC Practice</span> <div id="userinfo">user info goes here</div>
-    <hr>
-    {% block content %}{% endblock %}
+    <div id="container">
+        <div id="header">
+            NMT ICPC
+            <div id="userinfo">{% if user.is_authenticated %} {{ user.username }} (<a href="/accounts/signout">log out</a>){% else %} (<a href="/accounts/signin">sign in</a> | <a href="/accounts/signup">register</a>){% endif %}</div>
+        </div>
+        <div id="body">
+            {% block content %}{% endblock %}
+        </div>
+    </div>    
+
 </body>
 </html>

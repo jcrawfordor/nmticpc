@@ -2,6 +2,8 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
+from django.template import RequestContext
 
 def homePage(request):
-    return render_to_response('simplecontent.tpl', {'theContent': "This is the homepage"})
+    c = RequestContext(request, {'theContent': "This is the homepage"})
+    return render_to_response('simplecontent.tpl', c)

@@ -1,5 +1,6 @@
 *.pyc
 *.sqlite
 *~
+*.swp
 /static
 /nmticpc/build
