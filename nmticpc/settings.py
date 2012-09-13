@@ -2,6 +2,7 @@
 
 import os
 import sys
+from datetime import datetime, timedelta
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -49,6 +50,14 @@ TEMPLATE_LOADERS = (
                 'django.template.loaders.app_directories.Loader',
                 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'nmticpc.teams.views.timeProc',
+)
+
 AUTHENTICATION_BACKENDS = (
                 'userena.backends.UserenaAuthenticationBackend',
                 'guardian.backends.ObjectPermissionBackend',
@@ -92,3 +101,9 @@ USERENA_ACTIVATION_REQUIRED = False
 
 # model for user info
 AUTH_PROFILE_MODULE = 'teams.TeamProfile'
+
+
+# The competition start time
+
+COMPETITION_START_TIME = datetime(2012, 9, 12, 21, 50)
+COMPETITION_END_TIME = datetime(2012, 9, 12, 23, 50)

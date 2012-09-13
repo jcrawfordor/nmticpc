@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>{{ title }} -- NMT ICPC Practice</title>
+    <script type="text/javascript" src="/static/timer.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/mainstyle.css">
     {% block meta %}{% endblock %}
 </head>
@@ -26,6 +27,28 @@
             </div>
 
             {% block content %}{% endblock %}
+            
+            {% if timers %}
+            <div id="timecontainer">
+                <div id="lefttime">
+                    <div class="boxtime" id="utimer">
+                    </div>
+                    <div class="boxcap">
+                        Elapsed
+                    </div>
+                </div>
+                <div id="righttime">
+                    <div class="boxtime" id="dtimer">
+                        <script type="text/javascript">window.onload = CreateTimer("dtimer", {{ timeremaining }}, "utimer", {{ timeelapsed }});</script>
+                    </div>
+                    <div class="boxcap">
+                        Remaining
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <h2>The competition is not currently active.</h2>
+            {% endif %}
         </div>
     </div>    
 

@@ -5,6 +5,7 @@
 <h1>Problem {{problem.number}}</h1>
 <p>Worth {{problem.value}} point. {% if solved %}You've solved this problem.{% else %}You haven't solved this problem yet.{% endif %}</p>
 
+{% if showform %}
 {% if not solved %}
 <fieldset>
 <legend>Submit</legend>
@@ -14,6 +15,9 @@
 </fieldset>
 <input type="submit" value="submit"> {{ flash }}
 </form>
+{% endif %}
+{% else %}
+<p>Submissions are not open right now.</p>
 {% endif %}
 
 

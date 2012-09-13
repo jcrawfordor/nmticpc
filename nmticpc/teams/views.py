@@ -8,6 +8,7 @@ from django.forms import ModelForm
 
 from teams.models import Problem
 from teams.models import Submission
+from teams.util import isCompetitionLive
 
 def homePage(request):
     # kind of a stub view, but we need it rather than just using staticpage
@@ -47,14 +48,17 @@ def problem(request, pnum):
     flash = ""
     if request.method == 'POST':
         form = SubmissionForm(request.POST, request.FILES)
-        if form.is_valid():  
-            newSubmission = form.save(commit=False)
-            newSubmission.author = request.user
-            newSubmission.problem = thisproblem[0]
-            newSubmission.reviewed = False
-            newSubmission.valid = False
-            newSubmission.save()
-            flash = "Submission received."
+        if isCompetitionLive(): 
+            if form.is_valid():  
+                newSubmission = form.save(commit=False)
+                newSubmission.author = request.user
+                newSubmission.problem = thisproblem[0]
+                newSubmission.reviewed = False
+                newSubmission.valid = False
+                newSubmission.save()
+                flash = "Submission received."
+        else:
+            flash = "Not accepting submissions right now."
     else:
         form = SubmissionForm()
 
@@ -73,7 +77,7 @@ def problem(request, pnum):
         else:
             sub.status = "In queue for review."
 
-    c = RequestContext(request, {'problem': thisproblem[0], 'submission_list': submissionset, 'solved': solved, 'form': form, 'flash': flash}) 
+    c = RequestContext(request, {'problem': thisproblem[0], 'submission_list': submissionset, 'solved': solved, 'form': form, 'flash': flash, 'showform': isCompetitionLive()}) 
     return render_to_response('problem.tpl', c)
 
 from util import getRankedTeams
@@ -81,3 +85,17 @@ def scoreboard(request):
     scoreboard = getRankedTeams()
     c = RequestContext(request, {'teamlist': scoreboard})
     return render_to_response('scoreboard.tpl', c)
+
+from django.conf import settings
+import time
+from datetime import datetime
+def timeProc(request):
+    """ Context processor that adds countdown time to the bottom of each page """
+    timeElapsed = datetime.now() - settings.COMPETITION_START_TIME
+    timeRemains = settings.COMPETITION_END_TIME - datetime.now()
+    # conversion to a native time type might actually be the best way to format a timedelta as a string
+    # THIS IS STUPID
+    if isCompetitionLive():
+        return {'timeelapsed': timeElapsed.seconds, 'timeremaining': timeRemains.seconds, 'timers': True}
+    else:
+        return {'timers': False}

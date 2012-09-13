@@ -13,4 +13,12 @@ def getRankedTeams():
     newlist.sort(key=lambda x: x['score'], reverse=True)
 
     return newlist
-    
+
+from datetime import datetime
+from django.conf import settings
+def isCompetitionLive():
+    """ Returns true if the competition has started AND not ended yet. """
+    if datetime.now() > settings.COMPETITION_START_TIME and datetime.now() <= settings.COMPETITION_END_TIME:
+        return True
+    else:
+        return False
