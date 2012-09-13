@@ -10,6 +10,14 @@ class TeamProfile(UserenaBaseProfile):
     def __unicode__(this):
         return this.user.username
 
+    def getScore(this):
+        problemlist = Problem.objects.all()
+        score = 0
+        for problem in problemlist:
+            if problem.isSolvedBy(this.user):
+                score += 1
+        return score
+
 class Problem(models.Model):
     number = models.IntegerField()
     value  = models.IntegerField()

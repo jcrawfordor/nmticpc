@@ -76,4 +76,8 @@ def problem(request, pnum):
     c = RequestContext(request, {'problem': thisproblem[0], 'submission_list': submissionset, 'solved': solved, 'form': form, 'flash': flash}) 
     return render_to_response('problem.tpl', c)
 
-
+from util import getRankedTeams
+def scoreboard(request):
+    scoreboard = getRankedTeams()
+    c = RequestContext(request, {'teamlist': scoreboard})
+    return render_to_response('scoreboard.tpl', c)

@@ -11,4 +11,5 @@ urlpatterns = patterns('',
     (r'^$', 'teams.views.homePage'),
     (r'^submissions/', 'teams.views.submissions'),
     (r'^problem/(\d{1,2})/', 'teams.views.problem'),
+    (r'^scoreboard', 'teams.views.scoreboard'),
 )

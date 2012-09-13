@@ -14,7 +14,7 @@
         <div id="body">
 
             <div id="linkbar">
-                <a href="#">Scoreboard</a> | 
+                <a href="{% url teams.views.scoreboard %}">Scoreboard</a> | 
                 <a href="{% url teams.views.homePage %}">Rules/Info</a> |
                 {% if user.is_authenticated %}
                     <a href="{% url teams.views.submissions %}">Submissions</a> | 
