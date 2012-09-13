@@ -39,7 +39,7 @@
                 </div>
                 <div id="righttime">
                     <div class="boxtime" id="dtimer">
-                        <script type="text/javascript">window.onload = CreateTimer("dtimer", {{ timeremaining }}, "utimer", {{ timeelapsed }});</script>
+                        <script type="text/javascript">window.onload = CreateTimer("utimer", {{ timeelapsed }}, "dtimer", {{ timeremaining }});</script>
                     </div>
                     <div class="boxcap">
                         Remaining

@@ -106,4 +106,4 @@ AUTH_PROFILE_MODULE = 'teams.TeamProfile'
 # The competition start time
 
 COMPETITION_START_TIME = datetime(2012, 9, 12, 21, 50)
-COMPETITION_END_TIME = datetime(2012, 9, 12, 23, 50)
+COMPETITION_END_TIME = datetime(2012, 9, 12, 23, 53)
