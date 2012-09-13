@@ -3,9 +3,9 @@
 {% block content %}
 
 <h1>Problem {{problem.number}}</h1>
-<p>Worth {{problem.value}} point. {{solvedMessage}}</p>
+<p>Worth {{problem.value}} point. {% if solved %}You've solved this problem.{% else %}You haven't solved this problem yet.{% endif %}</p>
 
-
+{% if not solved %}
 <fieldset>
 <legend>Submit</legend>
 <form action="{% url teams.views.problem problem.number %}" method="post" enctype="multipart/form-data">
@@ -14,6 +14,7 @@
 </fieldset>
 <input type="submit" value="submit"> {{ flash }}
 </form>
+{% endif %}
 
 
 <h2>Submission History</h2>

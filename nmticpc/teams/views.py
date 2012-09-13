@@ -61,19 +61,19 @@ def problem(request, pnum):
     # now we get the submissions....
     submissionset = Submission.objects.filter(problem=thisproblem,author=request.user).order_by('submitted').reverse()
 
-    solvedMessage = "You haven't solved this problem yet."
+    solved = False
 
     # process boolean flags in to a nice status message
     for sub in submissionset:
         if sub.reviewed and sub.valid:
             sub.status = "Accepted, point awarded."
-            solvedMessage = "You've solved this problem."
+            solved = True
         elif sub.reviewed:
             sub.status = "Rejected, see comments."
         else:
             sub.status = "In queue for review."
 
-    c = RequestContext(request, {'problem': thisproblem[0], 'submission_list': submissionset, 'solvedMessage': solvedMessage, 'form': form, 'flash': flash}) 
+    c = RequestContext(request, {'problem': thisproblem[0], 'submission_list': submissionset, 'solved': solved, 'form': form, 'flash': flash}) 
     return render_to_response('problem.tpl', c)
 
 
