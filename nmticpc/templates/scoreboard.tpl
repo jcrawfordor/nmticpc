@@ -2,7 +2,7 @@
 
 {% block meta %}
     <link rel="stylesheet" type="text/css" href="/static/sbstyle.css">
-    <meta http-equiv="refresh" content="10">
+    <meta http-equiv="refresh" content="30">
 {% endblock %}
 
 {% block content %}

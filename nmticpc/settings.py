@@ -4,8 +4,8 @@ import os
 import sys
 from datetime import datetime, timedelta
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+DEBUG = False
+#TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -105,5 +105,5 @@ AUTH_PROFILE_MODULE = 'teams.TeamProfile'
 
 # The competition start time
 
-COMPETITION_START_TIME = datetime(2012, 9, 12, 21, 50)
-COMPETITION_END_TIME = datetime(2012, 9, 12, 23, 53)
+COMPETITION_START_TIME = datetime(2012, 9, 15, 14, 37)
+COMPETITION_END_TIME = datetime(2012, 9, 15, 17, 07)
