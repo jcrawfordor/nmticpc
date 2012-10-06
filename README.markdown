@@ -27,7 +27,7 @@ Setup
 *  In nmticpc/, edit settings.py for your database environment (you made a database already, right?) and run `./manage.py syncdb`. When asked to create a superuser account, do so.
 *  Run `./manage.py check_permissions` to add proper Userena permissions to the superuser account.
 *  Make a directory `<reporoot>/static` and run `./manage.py collectstatic` to accumulate static files there
-*  Make a directory `<reporoot>/media` and ensure that the webserver can read it
+*  Make a directory `<reporoot>/media` and ensure that the webserver can write it
 *  Apache (or whatever server you use) should be configured to serve `/static/` from `<reporoot>/static` and `/media/` from `<reporoot>/media` (if you change the relative path to these directories, change it in settings.py)
 *  Start up your webserver, go to /admin, and log in. Create a problem object for each problem.
 *  Set the competition start and end times appropriately at the bottom of settings.py.
